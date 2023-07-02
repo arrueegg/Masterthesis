@@ -1,0 +1,61 @@
+SEED: 7
+DEBUG: True
+LOG_FREQ: 100
+SAVE_CHECKPOINTS: [15]
+INFERENCE_CHECKPOINT: 15
+
+TRAINER:
+  LR: 1e-4
+  BATCH_SIZE: 8
+  EPOCHS: 15
+  OPTIMIZER: 'adamw'
+
+CONSISTENCY_TRAINER:
+  LOSS_FACTOR: 0.0
+  WEIGHT_DECAY: 0.998
+  APPLY_THRESHOLD: False
+  CONSISTENCY_LOSS_TYPE: 'PowerJaccardLoss'
+
+MODEL:
+  TYPE: 'unet'
+  OUT_CHANNELS: 1
+  IN_CHANNELS: 12
+  LOSS_TYPE: 'PowerJaccardLoss'
+  TOPOLOGY: [64, 128,]
+
+DATALOADER:
+  NUM_WORKER: 2
+  SHUFFLE: False
+  LABEL: 'buildings'
+  LABEL_THRESH: 0.0
+  MODE: 'fusion'
+  SENTINEL1_BANDS: ['VV', 'VH']
+  SENTINEL2_BANDS: ['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B8A', 'B11', 'B12']
+  INCLUDE_UNLABELED: False
+
+AUGMENTATION:
+  CROP_SIZE: 256
+  RANDOM_FLIP: True
+  RANDOM_ROTATE: True
+  COLOR_SHIFT: False
+  GAMMA_CORRECTION: True
+
+DATASET:
+  TRAINING: [
+    'albuquerque', 'atlantaeast', 'atlantawest', 'charlston', 'columbus', 'dallas', 'denver', 'elpaso', 'houston',
+    'kansascity', 'lasvegas', 'losangeles', 'miami', 'minneapolis', 'montreal', 'phoenix', 'quebec', 'saltlakecity',
+    'sandiego', 'santafe', 'seattle', 'stgeorge', 'toronto', 'tucson', 'winnipeg', 'sydney'
+  ]
+  VALIDATION: ['calgary', 'newyork', 'sanfrancisco', 'vancouver']
+  UNLABELED: [
+    'beijing', 'dubai', 'jakarta', 'cairo', 'kigali', 'lagos', 'mexicocity', 'mumbai', 'riodejaneiro', 'shanghai',
+    'buenosaires', 'bogota', 'sanjose', 'santiagodechile', 'capetown', 'tripoli', 'freetown', 'london', 'madrid',
+    'kinshasa', 'manila', 'moscow', 'newdehli', 'nursultan', 'tokio', 'stockholm', 'maputo', 'caracas',
+    'santacruzdelasierra', 'saopaulo', 'asuncion', 'lima', 'paramaribo', 'libreville', 'djibuti', 'beirut', 'baghdad',
+    'athens', 'islamabad', 'hanoi', 'bangkok', 'dhaka', 'bengaluru', 'taipeh', 'berlin', 'nanning', 'wuhan',
+    'daressalam', 'milano', 'zhengzhou', 'hefei', 'xian', 'seoul', 'ibadan', 'benincity', 'abidjan', 'accra',
+    'amsterdam', 'riyadh', 'amman', 'damascus', 'nouakchott', 'prague', 'sanaa', 'kuwaitcity', 'tehran'
+  ]
+
+
+

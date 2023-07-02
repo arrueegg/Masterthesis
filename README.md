@@ -4,10 +4,10 @@ This repository includes all code used for the generated results used in the cor
 
 Each method presented in the report was generated with the code in the respective folder.
 
-Single Sensor Solutions:      DDA_single
-Fuison-DA (baseline):         DDA_UrbanExtraction
-Discriminator approach:       Disc_reset
-Input Augmentation approach:  KTH_SD_reset
+Single Sensor Solutions:      DDA_single <br />
+Fuison-DA (baseline):         DDA_UrbanExtraction <br />
+Discriminator approach:       Disc_reset <br />
+Input Augmentation approach:  KTH_SD_reset <br />
 
 all folders contain the train_dualnetwork.py file which is used to launch the runs, all corresponding files, with network architecture, dataloader, etc. are stored in the subfolders like utils. All these files vary slightly among the methods but are structured the same and also include mostly the identical code.
 
